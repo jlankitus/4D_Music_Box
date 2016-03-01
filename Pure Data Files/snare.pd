@@ -1,0 +1,33 @@
+#N canvas 1358 -440 1600 1117 10;
+#X obj 342 170 noise~;
+#X obj 346 230 *~;
+#X obj 427 192 line~;
+#X msg 428 149 1 \, 0 50;
+#X obj 433 82 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 346 300 *~ 0;
+#X obj 610 341 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 800 1;
+#X msg 338 395 5000;
+#X msg 338 427 \; line resize \$1 \; noise resize \$1 \; noise_and_line
+resize \$1;
+#X obj 337 356 dac~;
+#X obj 555 238 tabwrite~ line;
+#X obj 561 265 tabwrite~ noise;
+#X obj 551 302 tabwrite~ noise_and_line;
+#X obj 328 265 lop~ 400;
+#X floatatom 383 238 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 0 0 11 0;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 2 0 10 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 9 0;
+#X connect 5 0 9 1;
+#X connect 6 0 5 1;
+#X connect 7 0 8 0;
+#X connect 13 0 5 0;
+#X connect 13 0 12 0;
+#X connect 14 0 13 1;
